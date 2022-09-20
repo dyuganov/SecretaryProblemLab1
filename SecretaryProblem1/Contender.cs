@@ -2,27 +2,36 @@
 
 public class Contender
 {
-    private String Name { get; set; }
-    
-    private String Surname { get; set; }
-    
-    private int Value
-    {
-        get => Value;
-        set
-        {
-            if (value > 0)
-            {
-                this.Value = value;
-            }
-        }
-        
-    }
-    
+    private readonly String _name;
+
+    private readonly String _surname;
+
+    private readonly int _value;
+
     public Contender(string name, string surname, int value)
     {
-        Name = name;
-        Surname = surname;
-        Value = value;
+        _name = name;
+        _surname = surname;
+        _value = value;
+    }
+    
+    public String GetName()
+    {
+        return _name;
+    }
+
+    public String GetSurname()
+    {
+        return _surname;
+    }
+
+    public String GetFullName()
+    {
+        return _name + ' ' + _surname;
+    }
+
+    public int GetValue()
+    {
+        return _value;
     }
 }

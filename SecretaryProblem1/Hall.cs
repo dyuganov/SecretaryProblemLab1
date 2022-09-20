@@ -2,20 +2,15 @@
 
 public class Hall
 {
-    private Stack<Contender> _contenders;
+    private readonly Queue<Contender> _contenders;
 
     public Hall(List<Contender> contenders)
     {
-        _contenders = new Stack<Contender>(contenders);
+        _contenders = new Queue<Contender>(contenders);
     }
 
     public Contender NextContender()
     {
-        return _contenders.Pop();
-    }
-
-    public Contender PeekContender()
-    {
-        return _contenders.Peek();
+        return _contenders.Dequeue();
     }
 }

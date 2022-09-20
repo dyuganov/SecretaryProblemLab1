@@ -1,12 +1,10 @@
-﻿using System.Security.Cryptography;
-
-namespace SecretaryProblem1;
+﻿namespace SecretaryProblem1;
 
 public class ContenderGenerator
 {
-    private const uint ContenderAmount = 100;
+    /*private const uint ContenderAmount = 100;
     private const uint MinValue = 1;
-    private const uint MaxValue = 100;
+    private const uint MaxValue = 100;*/
     private readonly Random _rand = new Random();
 
     private readonly String[] _names = 
@@ -95,12 +93,12 @@ public class ContenderGenerator
     };
 
     public List<Contender> GenerateContenders(int amount)
-    {
+    {   
         if (amount < 0)
         {
             throw new ArgumentException("Wrong amount for Contender generator");
         }
-        List<Contender> contenders = new List<Contender>();
+        var contenders = new List<Contender>();
         for (int i = 0; i < amount; ++i)
         {
             contenders.Add(new Contender(GetRandomName(), GetRandomSurname(), i));

@@ -11,9 +11,9 @@ public class Princess
     }
 
     // true == marry this contender, false == skip
-    public bool MakeChoice(Contender contender)
+    public Contender? MakeChoice(Contender contender)
     {
         
-        return false;
+        return null;
     }
 }
