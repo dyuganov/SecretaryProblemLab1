@@ -2,14 +2,15 @@
 
 public class SecretaryManager
 {
-    public int NewTry()
+    private const int ContendersAmount = 100;
+
+    private int NewTry()
     {
-        const int contendersAmount = 100;
         var contenderGenerator = new ContenderGenerator();
-        var hall = new Hall(contenderGenerator.GenerateContenders(contendersAmount));
+        var hall = new Hall(contenderGenerator.GenerateContenders(ContendersAmount));
         var friend = new Friend();
         var princess = new Princess(friend);
-        for (int i = 0; i < contendersAmount; ++i)
+        for (int i = 0; i < ContendersAmount; ++i)
         {
             var currentContender = princess.MakeChoice(hall.NextContender());
             if(null != currentContender)
@@ -19,6 +20,16 @@ public class SecretaryManager
         }
         const int contenderNotFoundValue = 10;
         return contenderNotFoundValue;
+    }
+
+    public double GetAvgInTries(uint amount)
+    {
+        long scoreSum = 0;
+        for (uint i = 0; i < amount; ++i)
+        {
+            scoreSum += NewTry();
+        }
+        return (scoreSum == 0 || amount == 0) ? (0) : (scoreSum / amount);
     }
 
     private int GetFinalScore(Contender contender)

@@ -4,7 +4,7 @@ public class Princess
 {
     private readonly Friend _friend;
     private uint _skippedContendersCnt = 0;
-    private const int ContendersToSkip = 36;
+    private const int ContendersToSkip = 7;
 
     public Princess(Friend friend)
     {
