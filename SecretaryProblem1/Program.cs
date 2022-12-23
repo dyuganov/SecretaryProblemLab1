@@ -2,12 +2,12 @@
 {
     static class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var secretaryManager = new SecretaryManager();
-            uint triesAmount = 10000;
-            var result = secretaryManager.GetAvgInTries(triesAmount);
-            Console.WriteLine($@"Avg score in {triesAmount} tries: {result}");
+            int iterations = 1000;
+            double result = secretaryManager.GetAvgInTries(iterations);
+            Console.WriteLine($@"iterations: {iterations}, avg score: {result}");
         }
     }
 }

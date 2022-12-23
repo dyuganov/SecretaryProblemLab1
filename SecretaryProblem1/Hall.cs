@@ -1,6 +1,6 @@
 ﻿namespace SecretaryProblem1;
 
-public class Hall
+public class Hall //: //IEnumerable<Contender>
 {
     private readonly Queue<Contender> _contenders;
 

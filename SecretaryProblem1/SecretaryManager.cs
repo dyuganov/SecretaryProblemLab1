@@ -22,10 +22,10 @@ public class SecretaryManager
         return contenderNotFoundValue;
     }
 
-    public double GetAvgInTries(uint amount)
+    public double GetAvgInTries(int amount)
     {
         long scoreSum = 0;
-        for (uint i = 0; i < amount; ++i)
+        for (int i = 0; i < amount; ++i)
         {
             scoreSum += NewTry();
         }
@@ -34,9 +34,18 @@ public class SecretaryManager
 
     private int GetFinalScore(Contender contender)
     {
+        const int firstScore = 20;
+        const int thirdScore = 50;
+        const int fifthScore = 100;
         const int looseValue = 0;
-        const int thresholdValue = 51;
         var contenderValue = contender.GetValue();
-        return contenderValue >= thresholdValue ? contenderValue : looseValue;
+
+        return contenderValue switch
+        {
+            100 => firstScore,
+            97 => thirdScore,
+            95 => fifthScore,
+            _ => looseValue
+        };
     }
 }
